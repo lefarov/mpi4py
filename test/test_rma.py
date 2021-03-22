@@ -332,11 +332,13 @@ class BaseTestRMA(object):
             win.Fence(assertion)
         win.Fence()
 
+    @unittest.skipMPI('openmpi(==5.1.0)') # XXX TODO
     @unittest.skipMPI('openmpi(==1.8.6)')
     def testStartComplete(self):
         self.WIN.Start(MPI.GROUP_EMPTY)
         self.WIN.Complete()
 
+    @unittest.skipMPI('openmpi(==5.1.0)') # XXX TODO
     @unittest.skipMPI('openmpi(==1.8.6)')
     def testPostWait(self):
         self.WIN.Post(MPI.GROUP_EMPTY)
